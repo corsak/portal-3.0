@@ -1,0 +1,290 @@
+<style>
+	.slider-pager .slider-pager-page {
+		color: #fff;
+	}
+	.slider-pager {
+		bottom: 10px;
+		height: 15px;
+		position: absolute;
+		right: 10px;
+		text-align: center;
+		width: 100%;
+		z-index: 1;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	#list {
+		width: 170px;
+		margin: 30px auto;
+		font-size: 20px;
+	}
+	#list ol {
+		margin-top: 30px;
+	}
+	#list ol li {
+		text-align: center;
+		list-style: decimal;
+		font-size: 6px;
+		margin: 10px 0px;
+	}
+</style>
+<ion-header-bar class="bar-light has-tabs-top">
+	<button class="button icon ion-navicon button-clear"></button>
+	<h1 class="title"><img src="images/logo.png" style="width:200px;height:45px;"></h1>
+	<button class="button icon ion-ios-location-outline button-clear">海口</button>
+</ion-header-bar>
+<ion-content>
+	<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+	<section>
+		<ion-slide-box on-slide-changed="slideChanged(index)" does-continue="false">
+			<ion-slide>
+				<div ng-click="next();">
+					<img src="temp/ad01.jpg">
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div ng-click="next();">
+					<img src="temp/ad02.jpg">
+				</div>
+			</ion-slide>
+			
+		</ion-slide-box>
+	</section>
+	<section>
+		<ul id="apps" class="table-view grid-view grid-9">
+			<li class="table-view-cell media col-xs-3 col-sm-3">
+				<a href="#/notify/index" class=""><img src="images/app_notify.png">
+					<div class="media-body">客运订票</div>
+				</a>
+			</li>
+			<li class="table-view-cell media col-xs-3 col-sm-3 ">
+				<a href="#"><img src="images/app_feed.png">
+					<div class="media-body">客户俱乐部</div>
+				</a>
+			</li>
+			<li class="table-view-cell media col-xs-3 col-sm-3">
+				<a href="#"><img src="images/app_plan.png">
+					<div class="media-body">违章查询</div>
+				</a>
+			</li>
+			<li class="table-view-cell media col-xs-3 col-sm-3">
+				<a href="#"><img src="images/app_task.png">
+					<div class="media-body">影票团购</div>
+				</a>
+			</li>
+			<li class="table-view-cell media col-xs-3 col-sm-3">
+				<a href="#"><img src="images/app_apply.png">
+					<div class="media-body">查公积金</div>
+				</a>
+			</li>
+			<li class="table-view-cell media col-xs-3 col-sm-3">
+				<a href="#"><img src="images/app_remind.png">
+					<div class="media-body">电视费查缴</div>
+				</a>
+			</li>
+
+			<li class="table-view-cell media col-xs-3 col-sm-3">
+				<a href="#"><img src="images/app_weekly.png">
+					<div class="media-body">亲子</div>
+				</a>
+			</li>
+			<li class="table-view-cell media col-xs-3 col-sm-3">
+				<a href="#"><img src="images/app_msg.png">
+					<div class="media-body">话费流量</div>
+				</a>
+			</li>
+		</ul>
+
+	</section>
+	<section id="b-i-g">
+		<ion-list class="list">
+			<ion-item class="item item-divider item-light">
+				秒杀活动
+			</ion-item>
+
+			<ion-item style="height:170px;padding:0px;" class="nopadding">
+				<ion-scroll zooming="false" direction="x" style="width:100%; height:180px">
+					<ul class="table-view  grid-view app-view grid-9" style="width:1200px;">
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#/notify/index" class=""><img src="images/m1.png">
+								<div class="media-body red">&yen;20.08</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m2.png">
+								<div class="media-body red">&yen;20.08</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m3.png">
+								<div class="media-body red">&yen;20.08</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m1.png">
+								<div class="media-body red">&yen;10.8</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m2.png">
+								<div class="media-body red">&yen;300</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m3.png">
+								<div class="media-body red">&yen;20.6</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m1.png">
+								<div class="media-body red">&yen;117</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m2.png">
+								<div class="media-body red">&yen;20.8</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m3.png">
+								<div class="media-body red">&yen;86.00</div>
+							</a>
+						</li>
+						<li class="table-view-cell col-xs-1 col-sm-1" style="width:120px;height:150px">
+							<a href="#"><img src="images/m1.png">
+								<div class="media-body red">&yen;亲子</div>
+							</a>
+						</li>
+					</ul>
+				</ion-scroll>
+			</ion-item>
+		</ion-list>
+	</section>
+
+	<section id="b-i-g">
+		<div class="row row-no-padding">
+			<div class="col col-50 nopadding"><img ng-src="images/b1.png"></div>
+			<div class="col">
+				<div class="row row-no-padding">
+					<div class="col" style="border-left:1px solid #aaa;">
+						<img ng-src="images/b2.png">
+					</div>
+				</div>
+				<div class="row row-no-padding">
+					<div class="col" style="border-left:1px solid #aaa;border-top:1px solid #aaa;">
+						<img ng-src="images/b3.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="b-i-g">
+		<div class="row row-no-padding">
+			<div class="col col-50 nopadding"><img ng-src="images/a1.png"></div>
+			<div class="col">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/a2.png">
+					</div>
+				</div>
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/a3.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="b-i-g">
+		<ion-list class="list">
+			<ion-item class="item item-divider item-light">
+				主题馆
+			</ion-item>
+		</ion-list>
+		<div class="row row-no-padding">
+			<div class="col col-50">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/s1.png">
+					</div>
+				</div>
+			</div>
+			<div class="col col-50" style="border-left:1px solid #eee;">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/s2.png">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row row-no-padding">
+			<div class="col col-50" style="border-top:1px solid #eee;">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/s3.png">
+					</div>
+				</div>
+			</div>
+			<div class="col col-50" style="border-left:1px solid #eee;border-top:1px solid #eee;">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/s4.png">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row row-no-padding">
+			<div class="col col-50" style="border-top:1px solid #eee;">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/s5.png">
+					</div>
+				</div>
+			</div>
+			<div class="col col-50" style="border-left:1px solid #eee;border-top:1px solid #eee;">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/s6.png">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row row-no-padding">
+			<div class="col col-50" style="border-top:1px solid #eee;">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/s7.png">
+					</div>
+				</div>
+			</div>
+			<div class="col col-50" style="border-left:1px solid #eee;border-top:1px solid #eee;">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/s8.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="b-i-g">
+		<div class="row row-no-padding">
+			<div class="col col-50">
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/e1.png">
+					</div>
+				</div>
+				<div class="row row-no-padding">
+					<div class="col">
+						<img ng-src="images/e3.png">
+					</div>
+				</div>
+			</div>
+			<div class="col "><img ng-src="images/e2.png"></div>
+		</div>
+	</section>
+	<section id="b-i-g">
+	</section>
+</ion-content>

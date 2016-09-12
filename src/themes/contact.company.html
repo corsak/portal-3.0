@@ -1,0 +1,22 @@
+<ion-header-bar class="bar">
+	<button class="button icon ion-ios-arrow-left button-clear" ng-click="goBack();"></button>
+	<h1 class="title">单位通讯录</h1>
+	<button class="button icon ion-more button-clear"></button>
+</ion-header-bar>
+<div class="bar bar-subheader">
+	<ion-scroll zooming="false" direction="x" style="width:100%; height: 44px">
+		<ol class="breadcrumb" style="width:500px;">
+			<li style="cursor:pointer;"><a href="#/tab/contact">联系人</a></li>
+			<li style="cursor:pointer;"><a href="#/tab/company">单位通讯录</a></li>
+		</ol>
+   </ion-scroll>
+</div>
+<ion-content style="margin-top:42px;" nav-transition="none">
+	<ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+		<ion-item ng-if="departments.lenght!=0" ng-repeat="row in departments" class="item item-icon item-icon-right" ng-href="#/tab/department/{{row.department_id}}/{{row.superior_dept}}">
+			<img src="images/icon_dept.png" > {{row.department_name}}
+			<!--span class="badge badge-stable">{{row.department_level}}</span-->
+			<i class="icon ion-ios-arrow-forward icon-accessory"></i>
+		</ion-item>
+	</ion-list>
+</ion-content>

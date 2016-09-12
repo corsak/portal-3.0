@@ -1,0 +1,48 @@
+<ion-header-bar class="bar">
+	<button class="button icon ion-ios-arrow-left button-clear" ng-click="goBack();"></button>
+	<h1 class="title">个人通讯录</h1>
+	<button class="button icon ion-more button-clear"></button>
+</ion-header-bar>
+<ion-content style="margin-bottom: 47px;" >
+	<ion-list class="list">
+		<ion-item class="item item-avatar">
+			<img ng-src="images/noavatar.png" id="user_avatar">
+			<h2 id="title">{{staff.staff_name}}</h2>
+			<p ng-if="staff.duty_name!=0">{{staff.duty_name}}</p>
+		</ion-item>
+		
+		<ion-item class="item item-divider"></ion-item>
+		<ion-item  ng-if="staff.shortno!=0" class="item item-icon-right">
+			<p style="color:deepskyblue">集团短号</p>
+			<h2 ng-click="openCall(staff.shortno);">{{staff.shortno}}</h2>
+			<a class="icon ion-ios-chatbubble balanced" href="javascript:void(0);" ng-click="openSms(staff.shortno)" style="right:60px;"></a>
+			<a class="icon ion-ios-telephone balanced" href="javascript:void(0);" ng-click="openCall(staff.shortno)"></a>
+		</ion-item>
+		<ion-item  ng-if="staff.cell_phone!=0" class="item item-icon-right">
+			<p style="color:deepskyblue">移动号码</p>
+			<h2 ng-click="openCall(staff.cell_phone);">{{staff.cell_phone}}</h2>
+			<a class="icon ion-ios-chatbubble balanced" href="javascript:void(0);" ng-click="openSms(staff.cell_phone)" style="right:60px;"></a>
+			<a class="icon ion-ios-telephone balanced" href="javascript:void(0);" ng-click="openCall(staff.cell_phone)" ></a>
+		</ion-item>
+		<ion-item ng-if="staff.office_phone!=0" class="item item-icon-right">
+			<p style="color:deepskyblue">办公号码</p>
+			<h2 ng-click="openCall(staff.office_phone);">{{staff.office_phone}}</h2>
+			<a class="icon ion-ios-chatbubble balanced" href="javascript:void(0);" ng-click="openSms(staff.office_phone)" style="right:60px;"></a>
+			<a class="icon ion-ios-telephone balanced" href="javascript:void(0);" ng-click="openCall(staff.office_phone)"></a>
+		</ion-item>
+		<ion-item  class="item item-input">
+				<textarea placeholder="备注信息"></textarea>
+		</ion-item>
+		<ion-item class="item item-divider"></ion-item>
+		<ion-item class="item">
+			<a style="color:deepskyblue" ng-click="openSms(staff.cell_phone)">发送信息</a>
+		</ion-item>
+		<ion-item class="item" >
+			<a style="color:deepskyblue">共享联系人</a>
+		</ion-item>
+		<ion-item class="item" >
+			<a style="color:deepskyblue">添加到收藏夹</a>
+		</ion-item>
+		<ion-item class="item item-divider"></ion-item>
+	</ion-list>
+</ion-content>

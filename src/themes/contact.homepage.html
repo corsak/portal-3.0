@@ -1,0 +1,36 @@
+<ion-header-bar class="bar">
+	<button class="button icon ion-navicon button-clear"></button>
+	<h1 class="title">联系人</h1>
+	<button class="button icon ion-more button-clear"></button>
+</ion-header-bar>
+<ion-content style="margin-top:-2px;">
+	<ion-list class="list">
+		<ion-item ng-if="user_status== 'is_nologin'" class="item item-avatar" ng-click="openUserLogin();">
+			<img ng-src="images/noavatar.png" id="user_avatar">
+			<h2 id="title">社交圈</h2>
+			<p >您还没有填写签名信息。</p>
+		</ion-item>
+		<ion-item ng-if="user_status=='is_logined'" class="item item-avatar" ng-click="openUserLogout();">
+			<img ng-src="{{user.user_avatar}}">
+			<h2>{{user.user_realname}}</h2>
+			<p>{{user.user_notes}}</p>
+		</ion-item>		
+		<ion-item class="item item-divider"></ion-item>
+		<ion-item class="item item-icon-left" href="#/tab/company">
+			<i class="icon ion-ios-person positive"></i> 单位通讯录
+		</ion-item>
+		<ion-item class="item item-icon-left" href="#/tab/person">
+			<i class="icon ion-ios-gear calm"></i> 个人通讯录
+		</ion-item>
+		<ion-item class="item item-icon-left" href="#/tab/group">
+			<i class="icon ion-reply balanced"></i> 群组通讯录
+		</ion-item>
+		<ion-item class="item item-divider"></ion-item>
+	</ion-list>
+	<div class="padding" ng-if="user_status== 'is_nologin'">
+		<button class="button button-block button-balanced" ng-click="openUserLogin();">点击登录</button>
+	</div>
+	<div class="padding" ng-if="user_status == 'is_logined'">
+		<button class="button button-block button-energized" ng-click="openUserLogout();">退出账号</button>
+	</div>
+</ion-content>

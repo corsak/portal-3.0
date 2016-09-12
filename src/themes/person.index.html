@@ -1,0 +1,57 @@
+<ion-header-bar class="bar ">
+	<button class="button icon ion-ios-arrow-left button-clear" ng-click="goBack();"></button>
+	<h1 class="title">联系人</h1>
+	<button class="button icon ion-ios-search  button-clear"></button>
+</ion-header-bar>
+<ion-content>
+	<div class="bar bar-header item-input-inset" style="display:none;">
+		<label class="item-input-wrapper">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" placeholder="">
+		</label>
+		<button class="button button-clear">
+			搜索
+		</button>
+	</div>
+	<div class="pane" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px);"> <div class="tabs-striped tabs-top tabs-light tabs-icon-top">
+	  <div style="height:100px;" class="tabs">
+	   <a href="#/help/helpleft" class="tab-item active relative">
+	 <span style="color:#e34649">新手常见问题</span>
+	   </a>
+	  <a href="#/help/helpright" class="tab-item relative">
+	 	账户&amp;提现问题
+	   </a>
+	  </div>
+	 </div>
+
+	<ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+		<ion-item ng-repeat="row in staffs" class="item item-avatar item-icon-right">
+
+			<img src="images/avatar.png">
+			<h2>{{row.staff_name}}</h2>
+			<p>{{row.cell_phone}}</p>
+			<a href="call:13876309590"><i class="icon ion-ios-telephone balanced"></i></a>
+			<ion-option-button class="button-positive" ng-click="share(item)">
+				Share
+			</ion-option-button>
+			<ion-option-button class="button-info" ng-click="edit(item)">
+				Edit
+			</ion-option-button>
+			<ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)">
+			</ion-delete-button>
+			<ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+			</ion-reorder-button>
+
+		</ion-item>
+	</ion-list>
+
+	<ul class="list">
+		<li class="item item-divider">A</li>
+		<li class="item item-avatar item-icon-right">
+			<img src="images/avatar.png">
+			<h2>{{row.staff_name}}</h2>
+			<p>{{row.cell_phone}}</p>
+			<a href="call:13876309590"><i class="icon ion-ios-telephone balanced"></i></a>
+		</li>
+	</ul>
+</ion-content>

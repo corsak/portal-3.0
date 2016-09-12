@@ -1,0 +1,48 @@
+ <ion-header-bar class="bar">
+	<button class="button icon ion-navicon button-clear"></button>
+	<h1 class="title">我的</h1>
+	<button class="button icon ion-ios-search button-clear"></button>
+</ion-header-bar>
+<ion-content>
+<div id="content">
+	<section id="user-bg" class="relative">
+		<div class="user-ava relative" >
+			<div class="fl" ng-click="upLoadImg()">
+				<img ng-src="images/avatar.png" alt="" class="ava">
+				<img src="img/ava-block.png" alt="" class="ava" style="background-image:url('{{avaImg}}')">
+			</div>
+			<div class="user-info fl">
+				<p><span style="padding-right:10px">李鹏</span><span class="user-vip">1</span>
+				</p>
+				<p>余额：100元&nbsp;&nbsp;积分：200分</p>
+			</div>
+		</div>
+	</section>
+	
+	<section>
+	<ul class="list list-li-bg">
+ 	<li class="item" ng-click="goTo(1)"><img src="img/icon-fanli.png" alt="">我的订单</li>
+ 	<li class="item" ng-click="goTo(2)"><img src="img/icon-zh.png" alt="">账户明细</li>
+ 	<li class="item" ng-click="goTo(3)"><img src="img/icon-tao.png" alt="">我的淘宝</li>
+	</ul>
+
+	<ul class="list list-li-bg">
+ 	<li class="item" ng-click="goTo(12)"><img src="img/icon-jf.png" alt="">积分兑换现金</li>
+ 	<li class="item" ng-click="goTo(14)"><img src="img/icon-dd.png" alt="">订单丢失赔偿</li>
+ 	<li class="item" ng-click="goTo(6)"><img src="img/icon-xg.png" alt="">修改账户设置</li>
+	</ul>
+
+	<ul class="list list-li-bg">
+ 	<li class="item" ng-click="goTo(7)"><img src="img/icon-yq.png" alt="">邀请好友<i class="badge" style="font-weight:normal">奖励其返利的31%</i></li>
+ 	<li class="item" ng-click="goToEx()"><img src="img/icon-fx.png" alt="">订单分享朋友圈<span style="color:#f7470e">双倍返利</span></li>
+	</ul>
+
+	<ul class="list list-li-bg">
+ 	<li class="item" ng-click="kf('http://m2.cosjii.com/Index/WebChat','客服聊天')"><img src="img/icon-lx.png" alt="">联系客服</li>
+ 	<li class="item" ng-click="goToHelp()"><img src="img/icon-bz.png" alt="">帮助中心</li>
+ 	<li class="item" ng-click="goTo(8)"><img src="img/icon-yj.png" alt="">意见反馈</li>
+	<li class="item" ng-click="goTo(9)"><img src="img/icon-zn.png" alt="">站内信息<i class="badge badge-assertive" ng-if="unreadMsg != '0'">{{unreadMsg}}</i></li>
+	</ul>
+	</section>
+</div>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-modal-view>
+	<ion-header-bar class="bar">
+		<button class="button button-icon icon ion-ios-close-outline" ng-click="closeModal()"></button>
+		<h1 class="title">用户登录</h1>
+	</ion-header-bar>
+	<ion-content>
+		<div id="tip" class="bar bar-loading bar-light fadeInDown animated" style="display:none;">
+	
+		</div>
+		<ion-list class="list">
+			<ion-item class="item item-divider"></ion-item>
+			<ion-item class="item item-input">
+				<i class="icon ion-person dark"></i>
+				<span class="input-label">&nbsp;&nbsp;用户名</span>
+				<input type="text" name="user_name" id="user_name" value="admin" placeholder="请填写手机号/邮箱账号">
+			</ion-item>
+			<ion-item class="item item-input">
+				<i class="icon ion-ios-keypad dark"></i>
+				<span class="input-label">&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;码</span>
+				<input type="password" name="user_passwd" id="user_passwd" value="101116" placeholder="请填写密码">
+			</ion-item>
+			<ion-item class="item item-checkbox">
+				<label class="checkbox checkbox-calm">
+					<input type="checkbox" id="remember" name="remember" checked="checked" value="remembered">
+				</label>
+				下次自动登录
+			</ion-item>
+		</ion-list>
+		<div class="padding-left padding-right">
+			<button class="button button-block button-calm" ng-click="openUserLoginCheck()">
+				登 录
+			</button>
+		</div>
+		<ul class="list list-borderless">
+			<li class="item item-icon-right" href="#/tab/home/">
+				<i class="icon ion-chevron-right icon-accessory"></i> 忘记了密码？点击这里找回。
+			</li>
+		</ul>	
+	</ion-content>
+</ion-modal-view>

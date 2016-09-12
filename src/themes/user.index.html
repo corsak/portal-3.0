@@ -1,0 +1,42 @@
+<ion-header-bar class="bar-pink">
+	<button class="button icon ion-navicon button-clear"></button>
+	<h1 class="title">我的</h1>
+	<button class="button icon ion-more button-clear"></button>
+</ion-header-bar>
+<ion-content style="margin-top:-2px;">
+	<ion-list class="list">
+		<ion-item ng-if="user_status== 'is_nologin'" class="item item-avatar" ng-click="openUserLogin();">
+			<img ng-src="images/noavatar.png" id="user_avatar">
+			<h2 id="title">未登录</h2>
+			<p >您还没有填写签名信息。</p>
+		</ion-item>
+		<ion-item ng-if="user_status=='is_logined'" class="item item-avatar" ng-click="openUserLogout();">
+			<img ng-src="{{user.user_avatar}}">
+			<h2>{{user.user_realname}}</h2>
+			<p>{{user.user_notes}}</p>
+		</ion-item>		
+		<ion-item class="item item-divider"></ion-item>
+		<ion-item class="item item-icon-left" href="#/tab/edit">
+			<i class="icon ion-ios-person positive"></i> 账号设置
+		</ion-item>
+		<ion-item class="item item-icon-left" href="#/tab/common">
+			<i class="icon ion-ios-gear calm"></i> 通用设置
+		</ion-item>
+		<ion-item class="item item-icon-left" href="#/tab/feedback">
+			<i class="icon ion-reply balanced"></i> 反馈信息
+		</ion-item>
+		<ion-item class="item item-icon-left" href="#/tab/rsync">
+			<i class="icon ion-filing energized"></i> 数据同步
+		</ion-item>
+		<ion-item class="item item-icon-left" href="#/tab/about">
+			<i class="icon ion-information-circled positive"></i> 关于我们
+		</ion-item>
+		<ion-item class="item item-divider"></ion-item>
+	</ion-list>
+	<div class="padding" ng-if="user_status== 'is_nologin'">
+		<button class="button button-block button-balanced" ng-click="openUserLogin();">点击登录</button>
+	</div>
+	<div class="padding" ng-if="user_status== 'is_logined'">
+		<button class="button button-block button-energized" ng-click="openUserLogout();">退出账号</button>
+	</div>
+</ion-content>

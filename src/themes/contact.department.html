@@ -1,0 +1,65 @@
+<ion-header-bar class="bar">
+	<button class="button icon ion-ios-arrow-left button-clear" ng-click="goBack();"></button>
+	<h1 class="title">{{pageTitle}}</h1>
+	<button class="button icon ion-more button-clear"></button>
+</ion-header-bar>
+<div class="bar bar-subheader">
+	<ion-scroll zooming="false" direction="x" style="width:100%; height: 44px">
+		<ol class="breadcrumb" style="width:500px;">
+			<li ng-click="goBack();" style="cursor:pointer;">全部</li>
+			<li ng-click="goBack();" style="cursor:pointer;">{{superior.department_name}}</li>
+			<li class="active">{{department.department_name}}</li>
+		</ol>
+   </ion-scroll>
+</div>
+<ion-content style="margin-top:42px;"  nav-transition="none">
+	<ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+		<ion-item ng-if="departments.length!=0" ng-repeat="row in departments" class="item item-avatar   item-icon-right" href="#/tab/department/{{row.department_id}}/{{row.superior_dept}}">
+			<img src="images/icon_dept.png" style="width:36px;height:36px;"> {{row.department_name}}
+			<!--span class="badge badge-stable">0</span-->
+			<i class="icon ion-ios-arrow-forward icon-accessory"></i>
+		</ion-item>
+		<ion-item ng-if="departments.length==0" ng-repeat="staff in staffs" class="item item-avatar item-icon-right" ng-href="#/tab/staff/{{staff.staff_id}}">
+			<img src="images/noavatar.png">
+			<h2>{{staff.staff_name}}</h2>
+			<p>{{staff.cell_phone}}</p>
+			<a href="javascript:void(0);" ng-click="openCall(staff.cell_phone)"><i class="icon ion-ios-telephone balanced"></i></a>
+			<ion-option-button class="button-positive" ng-click="share(item)">
+				Share
+			</ion-option-button>
+			<ion-option-button class="button-info" ng-click="edit(item)">
+				Edit
+			</ion-option-button>
+			<ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)">
+			</ion-delete-button>
+			<ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+			</ion-reorder-button>
+		</ion-item>
+	</ion-list>
+</ion-content>
+<!--ion-list show-delete="data.showDelete" show-reorder="data.showReorder" can-swipe="true">
+  		<div class="item item-divider">
+  		A
+  		</div>
+        <ion-item 
+                  ng-href="#/contact/department/{{row.department_id}}"
+                  class="item item-avatar-left item-icon-right"
+                  type="item-avatar" >
+          <img src="images/department.png">
+          <h2 style="font-size:16px;">{{row.department_name}}</h2>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          <ion-delete-button class="ion-minus-circled"
+                             ng-click="onItemDelete(item)">
+          </ion-delete-button>
+          <ion-option-button class="button-assertive"
+                             ng-click="edit(item)">
+            Edit
+          </ion-option-button>
+          <ion-option-button class="button-calm"
+                             ng-click="share(item)">
+            Share
+          </ion-option-button>
+          <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+        </ion-item>
+
+      </ion-list-->

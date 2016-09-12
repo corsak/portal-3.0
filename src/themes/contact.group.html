@@ -1,0 +1,46 @@
+<ion-header-bar class="bar">
+	<button class="button icon ion-navicon button-clear" ng-click="goBack()"></button>
+	<h1 class="title">通讯录</h1>
+</ion-header-bar>
+<div class=" item-input-inset" style="display:none;">
+	<label class="item-input-wrapper">
+		<i class="icon ion-search placeholder-icon"></i>
+		<input type="search" placeholder="Search">
+	</label>
+	<button class="button button-clear">
+		取消
+	</button>
+</div>
+<div class="bar bar-subheader">
+	<ion-scroll zooming="false" direction="x" style="width:100%; height: 44px">
+		<ol class="breadcrumb" style="width:200px;">
+			<li style="cursor:pointer;"><a href="#/tab/contact">联系人</a></li>
+			<li style="cursor:pointer;"><a href="#/tab/company">群组</a></li>
+		</ol>
+   </ion-scroll>
+</div>
+<ion-content style="margin-top:42px;" nav-transition="none">
+	<ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+
+		<ion-item ng-repeat="group in groups" class="item item-avatar item-icon-right" ng-click="openChatForm(group.group_id)">
+			<img src="images/icon_group.png" style="border-radius:50%;">
+			<span class="item-note">
+            12:25
+          </span>
+			<h2>{{group.group_name}}</h2>
+
+			<p style="color:darkgray;">最新更新提示</p>
+			<i class="icon ion-chevron-right icon-accessory"></i>
+			<ion-option-button class="button-positive" ng-click="share(item)">
+				Share
+			</ion-option-button>
+			<ion-option-button class="button-info" ng-click="edit(item)">
+				Edit
+			</ion-option-button>
+			<ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)">
+			</ion-delete-button>
+			<ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+			</ion-reorder-button>
+		</ion-item>
+	</ion-list>
+</ion-content>
